@@ -1,0 +1,31 @@
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+@{
+    Layout = null;
+
+}
+
+<div id="userbox" class="userbox">
+    <a href="#" data-toggle="dropdown">
+        <figure class="profile-picture">
+            <i class="fa fa-user"></i>
+        </figure>
+
+        <div class="profile-info custom-profile-info" data-lock-name="" data-lock-email="">
+            <span class="name">@HttpContextAccessor.HttpContext.Session.GetString("username")</span>
+        </div>
+
+        <i class="fa custom-caret"></i>
+    </a>
+
+    <div class="dropdown-menu">
+        <ul class="list-unstyled mb-2">
+            <li class="divider"></li>
+
+            <li>
+                <a role="menuitem" tabindex="-1" href="@Url.Action("Logout", "Account")" class="text-truncate"><i class="bx bx-power-off"></i> @Back.Resources.Menu.Resource.Logout</a>
+            </li>
+        </ul>
+    </div>
+</div>
+

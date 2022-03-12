@@ -1,3 +1,27 @@
+.git
+.vs
+#Solution.sln
+
+# BACK
+Back/AppData
+Back/bin
+Back/obj
+Back/Properties
+Back/Back.csproj.user
+
+# DATA
+Data/bin
+Data/obj
+Data/Migrations
+
+# SERVICE
+Service/AppData
+Service/bin
+Service/obj
+Service/Properties
+Service/Service.csproj.user
+
+
 # Prerequisites
 *.d
 

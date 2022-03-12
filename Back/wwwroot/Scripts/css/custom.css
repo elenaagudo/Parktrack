@@ -1,0 +1,14 @@
+/* Add here all your CSS customizations */
+ul.nav-main li.nav-active > a {
+    color: #0000ff !important;
+    box-shadow: 2px 0 0 #0000ff inset;
+}
+
+ul.nav-main li .nav-children li.nav-active > a {
+    color: #8080ff !important;
+    box-shadow: none !important;
+}
+
+.custom-profile-info {
+    min-width: 70px;
+}

@@ -1,0 +1,135 @@
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+
+@{
+    if (@HttpContextAccessor.HttpContext.Session.GetString("userId") == null)
+    {
+        Context.Response.Redirect(Url.Action("Login", "Account"));
+    }
+}
+<!doctype html>
+<html class="fixed sidebar-light" data-style-switcher-options="{'sidebarColor': 'light'}">
+<head>
+
+    <!-- Basic -->
+    <meta charset="UTF-8">
+
+    <title>Blank Project</title>
+    <meta name="keywords" content="HTML5 Admin Template" />
+    <meta name="description" content="BlankProject">
+    <meta name="author" content="innotu.com">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <!-- Web Fonts  -->
+    @*<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800|Shadows+Into+Light" rel="stylesheet" type="text/css">*@
+    <link href="https://fonts.googleapis.com/css?family=Poppins:500,600,700,800|Shadows+Into+Light" rel="stylesheet" type="text/css">
+
+
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="~/Scripts/vendor/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/Scripts/vendor/animate/animate.compat.css">
+
+    <link rel="stylesheet" href="~/Scripts/vendor/font-awesome/css/all.min.css" />
+    <link rel="stylesheet" href="~/Scripts/vendor/boxicons/css/boxicons.min.css" />
+    <link rel="stylesheet" href="~/Scripts/vendor/magnific-popup/magnific-popup.css" />
+    <link rel="stylesheet" href="~/Scripts/vendor/bootstrap-datepicker/css/bootstrap-datepicker3.css" />
+    <link rel="stylesheet" href="~/Scripts/vendor/datatables/media/css/dataTables.bootstrap4.css" />
+
+    <!-- Specific Page Vendor CSS -->
+    <link rel="stylesheet" href="~/Scripts/vendor/jquery-ui/jquery-ui.css" />
+    <link rel="stylesheet" href="~/Scripts/vendor/jquery-ui/jquery-ui.theme.css" />
+
+    
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="~/Scripts/css/theme.css" />
+
+    
+    <!-- Theme Custom CSS -->
+    <link rel="stylesheet" href="~/Scripts/css/custom.css">
+
+
+    <!-- Head Libs -->
+    <script src="~/Scripts/vendor/modernizr/modernizr.js"></script>
+    <script src="~/Scripts/master/style-switcher/style.switcher.localstorage.js"></script>
+
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <section class="body">
+
+        <header class="header">
+
+            <div class="logo-container d-inline">
+                <a href="/" class="logo">
+                    <img src="~/img/logo-innotu.png" alt="Airlan Tracker" width="120px">
+                </a>
+                <div class="d-md-none toggle-sidebar-left" data-toggle-class="sidebar-left-opened" data-target="html" data-fire-event="sidebar-left-opened">
+                    <i class="fas fa-bars" aria-label="Toggle sidebar"></i>
+                </div>
+                <span class="separator invisible"></span>
+            </div>
+
+            <!-- start: languages & user box -->
+            <div class="header-right">
+                <span class="separator"></span>
+                <partial name="~/Views/Shared/_SelectorIdioma.cshtml" />
+
+                <span class="separator"></span>
+
+                <partial name="~/Views/Shared/_MenuUsuario.cshtml" />
+
+            </div>
+            <!-- end: search & user box -->
+        </header>
+
+        <div class="inner-wrapper">
+            <!-- start: sidebar -->
+            <partial name="~/Views/Shared/_MenuLateral.cshtml" />
+            <!-- end: sidebar -->
+
+            <section role="main" class="content-body">
+                <header class="page-header">
+                    <h2>@ViewData["Title"]</h2>
+                </header>
+
+                <!-- start: page -->
+                @RenderBody()
+                <!-- end: page -->
+            </section>
+        </div>
+
+
+    </section>
+
+    <!-- Vendor -->
+    <script src="~/Scripts/vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>
+    <script src="~/Scripts/vendor/jquery-cookie/jquery.cookie.js"></script>
+    <script src="~/Scripts/vendor/popper/umd/popper.min.js"></script>
+    <script src="~/Scripts/vendor/bootstrap/js/bootstrap.js"></script>
+    <script src="~/Scripts/vendor/jquery-placeholder/jquery.placeholder.js"></script>
+
+    <!-- Specific Page Vendor -->
+    <script src="~/Scripts/vendor/jquery-ui/jquery-ui.js"></script>
+    <script src="~/Scripts/vendor/jqueryui-touch-punch/jquery.ui.touch-punch.js"></script>
+    <script src="~/Scripts/vendor/jquery-appear/jquery.appear.js"></script>
+    <script src="~/Scripts/vendor/nanoscroller/nanoscroller.js"></script>
+
+    <partial name="~/Views/Shared/_ValidationScriptsPartial.cshtml" />
+
+    <script src="~/Scripts/js/custom.js" charset="utf-8"></script>
+
+    @RenderSection("Scripts", required: false)
+
+    <!-- Theme Base, Components and Settings -->
+    <!-- Theme Initialization Files -->
+    <script src="~/Scripts/js/theme.js"></script>
+    <script src="~/Scripts/js/theme.init.js"></script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+﻿@using Microsoft.AspNetCore.Builder;
+@using Microsoft.AspNetCore.Localization;
+@using Microsoft.AspNetCore.Mvc.Localization;
+@using Microsoft.Extensions.Options;
+
+@model dynamic
+@{
+    Layout = null;
+
+}
+
+<div id="userbox" class="userbox">
+    <a href="#" data-toggle="dropdown">
+
+        <div class="profile-info">
+            <span class="name">@Back.Resources.Menu.Resource.Languages&nbsp;</span>
+        </div>
+
+        <i class="fa custom-caret"></i>
+    </a>
+
+    <div class="dropdown-menu">
+        <ul class="list-unstyled mb-1">
+            <li class="divider"></li>
+            <li>
+                @Html.ActionLink(Back.Resources.Language.Resource.Spanish, "ChangeLanguage", "Idiomas", new { @selectedLanguage = "es" })
+            </li>
+            <li>
+                @Html.ActionLink(Back.Resources.Language.Resource.English, "ChangeLanguage", "Idiomas", new { @selectedLanguage = "en" })
+            </li>
+        </ul>
+    </div>
+</div>
